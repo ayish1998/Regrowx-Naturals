@@ -6,7 +6,7 @@
 
 ## 🏆 Hackathon Project - Ready to Win!
 
-**Live Demo:** [https://regrowx.vercel.app](https://regrowx.vercel.app) _(Deploy to get your URL)_
+**Live Demo:** [https://regrowx.netlify.app/](https://regrowx.netlify.app/)
 
 ---
 
@@ -175,6 +175,7 @@ Your site is now **ready to deploy without any database setup!**
 ### **🗄️ Optional: Add Database Later**
 
 See `DATABASE_SETUP.md` for Supabase setup if you want:
+
 - User accounts and authentication
 - Order history and tracking
 - Personalized analysis results
@@ -209,7 +210,7 @@ This project is proprietary and confidential. All rights reserved.
 
 ## 📞 Contact
 
-- **Website:** [regrowx.com](https://regrowx.com)
+- **Website:** [regrowx.com](https://regrowx.netlify.app/)
 - **Email:** regrowxnaturals@gmail.com
 - **Location:** Kumasi, Ghana 🇬🇭
 
