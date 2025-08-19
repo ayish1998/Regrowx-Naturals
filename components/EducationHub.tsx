@@ -844,20 +844,25 @@ export default function EducationHub() {
             <div className="p-8 max-h-[60vh] overflow-y-auto">
               <div className="prose prose-lg max-w-none">
                 {selectedArticle.content.split('\n').map((paragraph, index) => {
+                  // Function to convert markdown bold to HTML
+                  const formatText = (text: string) => {
+                    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                  };
+
                   if (paragraph.startsWith('# ')) {
                     return <h1 key={index} className="text-3xl font-bold text-gray-900 mb-6">{paragraph.slice(2)}</h1>;
                   } else if (paragraph.startsWith('## ')) {
                     return <h2 key={index} className="text-2xl font-bold text-gray-900 mb-4 mt-8">{paragraph.slice(3)}</h2>;
                   } else if (paragraph.startsWith('### ')) {
                     return <h3 key={index} className="text-xl font-bold text-gray-900 mb-3 mt-6">{paragraph.slice(4)}</h3>;
-                  } else if (paragraph.startsWith('- **')) {
-                    return <li key={index} className="text-gray-700 mb-2" dangerouslySetInnerHTML={{ __html: paragraph.slice(2) }} />;
+                  } else if (paragraph.startsWith('- ')) {
+                    return <li key={index} className="text-gray-700 mb-2" dangerouslySetInnerHTML={{ __html: formatText(paragraph.slice(2)) }} />;
                   } else if (paragraph.startsWith('*"') && paragraph.endsWith('"*')) {
                     return <blockquote key={index} className="border-l-4 border-primary-500 pl-4 italic text-gray-700 my-6">{paragraph.slice(2, -2)}</blockquote>;
-                  } else if (paragraph.trim() && !paragraph.startsWith('1.') && !paragraph.startsWith('2.')) {
-                    return <p key={index} className="text-gray-700 mb-4 leading-relaxed">{paragraph}</p>;
+                  } else if (paragraph.match(/^\d+\./)) {
+                    return <p key={index} className="text-gray-700 mb-2" dangerouslySetInnerHTML={{ __html: formatText(paragraph) }} />;
                   } else if (paragraph.trim()) {
-                    return <p key={index} className="text-gray-700 mb-2">{paragraph}</p>;
+                    return <p key={index} className="text-gray-700 mb-4 leading-relaxed" dangerouslySetInnerHTML={{ __html: formatText(paragraph) }} />;
                   }
                   return null;
                 })}
