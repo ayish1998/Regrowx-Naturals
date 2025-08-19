@@ -1,8 +1,35 @@
 'use client';
 
-import { Mail, Gift } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Gift, CheckCircle } from 'lucide-react';
 
 export default function Newsletter() {
+  const [email, setEmail] = useState('');
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    setIsLoading(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubscribed(true);
+      setIsLoading(false);
+      setEmail('');
+      
+      // Reset after 3 seconds
+      setTimeout(() => {
+        setIsSubscribed(false);
+      }, 3000);
+    }, 1000);
+  };
   return (
     <section className="section-padding hero-gradient text-white relative overflow-hidden">
       {/* Background Pattern */}
@@ -30,18 +57,39 @@ export default function Newsletter() {
 
           {/* Newsletter Form */}
           <div className="max-w-md mx-auto mb-8">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="w-full px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
-                />
+            {isSubscribed ? (
+              <div className="bg-white/20 rounded-xl p-6 backdrop-blur-sm">
+                <div className="flex items-center justify-center space-x-2 text-green-300">
+                  <CheckCircle className="w-6 h-6" />
+                  <span className="font-semibold">Successfully subscribed!</span>
+                </div>
+                <p className="text-white/80 text-sm mt-2">
+                  Welcome to the Regrowx community! Check your email for a special welcome offer.
+                </p>
               </div>
-              <button className="btn-white whitespace-nowrap">
-                Subscribe Now
-              </button>
-            </div>
+            ) : (
+              <form onSubmit={handleSubscribe}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex-1">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email address"
+                      className="w-full px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
+                      required
+                    />
+                  </div>
+                  <button 
+                    type="submit"
+                    disabled={isLoading}
+                    className="btn-white whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isLoading ? 'Subscribing...' : 'Subscribe Now'}
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
 
           {/* Benefits */}

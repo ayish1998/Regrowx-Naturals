@@ -19,7 +19,8 @@ const products = [
     badge: 'Best Seller',
     description: 'Traditional Ghanaian neem and shea butter formula for accelerated hair growth.',
     ingredients: ['Neem Extract', 'Shea Butter', 'Coconut Oil', 'Hibiscus'],
-    category: 'Hair Growth'
+    category: 'Hair Growth',
+    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&crop=center'
   },
   {
     id: 2,
@@ -30,7 +31,8 @@ const products = [
     badge: 'New',
     description: 'Nutrient-rich baobab oil to nourish and heal damaged scalp conditions.',
     ingredients: ['Baobab Oil', 'Moringa Extract', 'Jojoba Oil'],
-    category: 'Scalp Care'
+    category: 'Scalp Care',
+    image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop&crop=center'
   },
   {
     id: 3,
@@ -40,7 +42,8 @@ const products = [
     reviews: 156,
     description: 'Define and moisturize curls with this traditional hibiscus-infused cream.',
     ingredients: ['Hibiscus Extract', 'Aloe Vera', 'Coconut Cream'],
-    category: 'Styling'
+    category: 'Styling',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center'
   },
   {
     id: 4,
@@ -52,7 +55,8 @@ const products = [
     badge: 'Bundle',
     description: 'Everything you need for a complete natural hair transformation.',
     ingredients: ['All Natural', 'Ethically Sourced', '3 Products'],
-    category: 'Bundles'
+    category: 'Bundles',
+    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop&crop=center'
   },
   {
     id: 5,
@@ -62,7 +66,8 @@ const products = [
     reviews: 98,
     description: 'Deep conditioning mask with moringa extract for stronger, healthier hair.',
     ingredients: ['Moringa Extract', 'Shea Butter', 'Honey'],
-    category: 'Hair Masks'
+    category: 'Hair Masks',
+    image: 'https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop&crop=center'
   },
   {
     id: 6,
@@ -72,7 +77,8 @@ const products = [
     reviews: 145,
     description: 'Gentle cleansing with traditional African black soap and herbs.',
     ingredients: ['Black Soap', 'Tea Tree Oil', 'Peppermint'],
-    category: 'Cleansing'
+    category: 'Cleansing',
+    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center'
   }
 ];
 
@@ -162,14 +168,11 @@ export default function ProductCatalog() {
             <Card key={product.id} variant="product" padding="none" hover>
               {/* Product Image */}
               <div className="relative aspect-square bg-gray-100 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-primary-100 to-secondary-100 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white rounded-full mx-auto mb-2 flex items-center justify-center">
-                      <Leaf className="w-8 h-8 text-primary-600" />
-                    </div>
-                    <p className="text-sm text-gray-600">Product Image</p>
-                  </div>
-                </div>
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
 
                 {/* Badge */}
                 {product.badge && (

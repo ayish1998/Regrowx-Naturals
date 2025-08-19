@@ -96,17 +96,19 @@ export default function Hero() {
           {/* Right Content - Hero Image/Video */}
           <div className="relative">
             <div className="relative z-10">
-              {/* Placeholder for hero image/video */}
-              <div className="aspect-square bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-24 h-24 bg-white/20 rounded-full mx-auto flex items-center justify-center">
-                    <Play className="w-12 h-12 text-white" />
+              {/* AI Hair Analysis Demo */}
+              <Link href="/hair-analysis" className="block">
+                <div className="aspect-square bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer group">
+                  <div className="text-center space-y-4">
+                    <div className="w-24 h-24 bg-white/20 rounded-full mx-auto flex items-center justify-center group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300">
+                      <Play className="w-12 h-12 text-white" />
+                    </div>
+                    <p className="text-white/90 font-medium group-hover:text-yellow-300 transition-colors">
+                      See AI Hair Analysis in Action
+                    </p>
                   </div>
-                  <p className="text-white/90 font-medium">
-                    See AI Hair Analysis in Action
-                  </p>
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Floating Elements */}
