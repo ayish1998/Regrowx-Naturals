@@ -1,14 +1,20 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');
 
+  // If Supabase is not configured, just redirect
+  if (!isSupabaseConfigured) {
+    console.log('Supabase not configured, skipping auth callback');
+    return NextResponse.redirect(requestUrl.origin);
+  }
+
   if (code) {
     try {
       const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-      
+
       if (!error && data.user) {
         // Check if user profile exists, create if not
         const { data: profile } = await supabase
@@ -19,14 +25,12 @@ export async function GET(request: Request) {
 
         if (!profile) {
           // Create user profile
-          await supabase
-            .from('users')
-            .insert({
-              id: data.user.id,
-              email: data.user.email!,
-              full_name: data.user.user_metadata?.full_name || null,
-              avatar_url: data.user.user_metadata?.avatar_url || null,
-            });
+          await supabase.from('users').insert({
+            id: data.user.id,
+            email: data.user.email!,
+            full_name: data.user.user_metadata?.full_name || null,
+            avatar_url: data.user.user_metadata?.avatar_url || null,
+          });
         }
       }
     } catch (error) {

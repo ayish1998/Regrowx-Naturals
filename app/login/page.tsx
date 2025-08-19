@@ -1,5 +1,4 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
 import LoginForm from '@/components/LoginForm';
 
 export const metadata = {
@@ -9,12 +8,10 @@ export const metadata = {
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
+    <Layout>
       <div className="pt-20">
         <LoginForm />
       </div>
-      <Footer />
-    </main>
+    </Layout>
   );
 }

@@ -1,10 +1,8 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
+    <Layout>
       <div className="pt-20">
         <section className="section-padding">
           <div className="container-custom max-w-4xl">
@@ -43,7 +41,6 @@ export default function PrivacyPage() {
           </div>
         </section>
       </div>
-      <Footer />
-    </main>
+    </Layout>
   );
 }

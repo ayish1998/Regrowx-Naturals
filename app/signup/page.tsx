@@ -1,5 +1,4 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
 import SignupForm from '@/components/SignupForm';
 
 export const metadata = {
@@ -9,12 +8,10 @@ export const metadata = {
 
 export default function SignupPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
+    <Layout>
       <div className="pt-20">
         <SignupForm />
       </div>
-      <Footer />
-    </main>
+    </Layout>
   );
 }

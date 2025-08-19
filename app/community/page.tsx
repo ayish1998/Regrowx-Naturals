@@ -1,15 +1,12 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
 import CommunitySection from '@/components/CommunitySection';
 
 export default function CommunityPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
+    <Layout>
       <div className="pt-20">
         <CommunitySection />
       </div>
-      <Footer />
-    </main>
+    </Layout>
   );
 }

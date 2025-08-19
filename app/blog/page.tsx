@@ -1,11 +1,11 @@
 import Layout from '@/components/Layout';
-import ProductCatalog from '@/components/ProductCatalog';
+import EducationHub from '@/components/EducationHub';
 
-export default function ProductsPage() {
+export default function BlogPage() {
   return (
     <Layout>
       <div className="pt-20">
-        <ProductCatalog />
+        <EducationHub />
       </div>
     </Layout>
   );

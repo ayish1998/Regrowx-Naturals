@@ -3,6 +3,7 @@
 import { ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import SimplestChatbot from './SimplestChatbot';
 
 interface LayoutProps {
   children: ReactNode;
@@ -26,6 +27,9 @@ export default function Layout({
       </main>
       
       {showFooter && <Footer />}
+      
+      {/* Customer Support Chatbot - Available on all pages */}
+      <SimplestChatbot />
     </div>
   );
 }

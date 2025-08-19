@@ -127,10 +127,10 @@ export default function Header() {
             }`}>
               Hair Analysis
             </Link>
-            <Link href="/education" className={`font-medium transition-colors ${
-              isActiveLink('/education') ? 'text-primary-600' : 'text-gray-700 hover:text-primary-600'
+            <Link href="/blog" className={`font-medium transition-colors ${
+              isActiveLink('/blog') ? 'text-primary-600' : 'text-gray-700 hover:text-primary-600'
             }`}>
-              Education
+              Blog
             </Link>
             <Link href="/about" className={`font-medium transition-colors ${
               isActiveLink('/about') ? 'text-primary-600' : 'text-gray-700 hover:text-primary-600'
@@ -215,10 +215,10 @@ export default function Header() {
                 }`}>
                   Hair Analysis
                 </Link>
-                <Link href="/education" className={`block py-3 font-medium transition-colors ${
-                  isActiveLink('/education') ? 'text-primary-600' : 'text-gray-700 hover:text-primary-600'
+                <Link href="/blog" className={`block py-3 font-medium transition-colors ${
+                  isActiveLink('/blog') ? 'text-primary-600' : 'text-gray-700 hover:text-primary-600'
                 }`}>
-                  Education
+                  Blog
                 </Link>
                 <Link href="/about" className={`block py-3 font-medium transition-colors ${
                   isActiveLink('/about') ? 'text-primary-600' : 'text-gray-700 hover:text-primary-600'

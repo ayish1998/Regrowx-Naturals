@@ -1,15 +1,12 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
 import ContactForm from '@/components/ContactForm';
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Header />
+    <Layout>
       <div className="pt-20">
         <ContactForm />
       </div>
-      <Footer />
-    </main>
+    </Layout>
   );
 }
